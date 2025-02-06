@@ -74,3 +74,15 @@ y[pred] is the predicted value of the variable. It’s whatever our network outp
 (y[true] - y[pred])**2 is known as the squared error. Our loss function is simply taking the average over all squared errors (hence the name mean squared error). The better our predictions are, the lower our loss will be!
 
 Better predictions = Lower loss. Training a network = trying to minimize its loss.
+
+
+We now have a clear goal: minimize the loss of the neural network. We know we can change the network’s weights and biases to influence its predictions, but how do we do so in a way that decreases loss?
+
+We’ll use an optimization algorithm called stochastic gradient descent (SGD) that tells us how to change our weights and biases to minimize loss.
+
+Our training process will look like this:
+
+1. Choose one sample from our dataset. This is what makes it stochastic gradient descent - we only operate on one sample at a time.
+2. Calculate all the partial derivatives of loss with respect to weights or biases.
+3. Use the update equation to update each weight and bias.
+4. Go back to step 1.
