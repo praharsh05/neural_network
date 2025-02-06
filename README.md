@@ -66,8 +66,11 @@ In this project we will use Mean Squared Error (MSE) Loss, which is:
 where,
 
 n is the number of samples, which is 4 (Alice, Bob, Charlie, Diana).
+
 y represents the variable being predicted, which is Gender.
+
 y[true] is the true value of the variable (the “correct answer”). For example, y[true] for Alice would be 1 (Female).
+
 y[pred] is the predicted value of the variable. It’s whatever our network outputs.
 
 
@@ -86,3 +89,28 @@ Our training process will look like this:
 2. Calculate all the partial derivatives of loss with respect to weights or biases.
 3. Use the update equation to update each weight and bias.
 4. Go back to step 1.
+
+Based on this approach we see our loss steadily decreases as the network learns.
+
+We now use the network to predict genders:
+
+`emily = np.array([-7, -3]) # 128 pounds, 63 inches`
+
+
+`frank = np.array([20, 2])  # 155 pounds, 68 inches`
+
+
+`print("Emily: %.3f" % network.feed_forward(emily)) # 0.948 - F`
+
+
+`print("Frank: %.3f" % network.feed_forward(frank)) # 0.039 - M`
+
+`Emily: 0.948`
+
+
+`Frank: 0.039`
+
+If we increase the number of epochs for the training the accuracy of the network also increases. for example: training for 1,000 epochs gave us the above prediction and training for 10,000 epochs gave us the preiction:
+
+`Emily: 0.990`
+`Frank: 0.016`
