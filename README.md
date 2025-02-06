@@ -24,3 +24,53 @@ The following things happen in a neuron:
 `y = f(x[1] * w[1] + x[2] * w[2] + b)`
 
 The activation function is used to turn an unbounded input into an output that has a nice, predictable form. A commonly used activation function is the sigmoid function.
+
+### Sigmoid Function
+
+The sigmoid function only outputs in the range (0,1). Think of it as compressing (-∞, +∞) to (0,1) i.e. large negative numbers become approximately 0 and large positive numbers become approximately 1.
+
+### Feed_Forward Function
+
+The process of passing inputs forward to get an ouput is known as feed forward.
+
+
+## 2. Combining Neurons into a Network
+
+A neural network is nothing more than a bunch of neurons connected together.
+
+We will create a simple neural network which will have 2 inputs, a hiddedn layer, which is any layer between the input layer and output layer, with 2 neurons (h[1] and h[2]), and an output layer with 1 neuron(o[1]). the inouts for o[1] are the outputs from h[1] and h[2], which makes it a network.
+
+## 3. Training a Neural Network
+
+For this project we are going to take a simple case of predicting someone's gender based on their weight and height.
+
+We have the following data in the format:
+
+`Name   Weight(lb)  Height(in)  Gender`
+`Alice  133 65  F`
+`Bob    160 72  M`
+`Charlie    152 70  M`
+`Diana  120 60  F`
+
+We will represent Male with a 0 and Female with a 1.
+We will also shift the data to make it easier to use, we have shifted it arbitrarily by amounts 135 and 66 to make the numbers look nice, though we should shift it by the mean.
+
+### Loss
+
+Before we train our network, we first need a way to quantify how "good" it's doing so that it can try to do "better", this is what loss is.
+
+In this project we will use Mean Squared Error (MSE) Loss, which is:
+
+`1/n 1->n ∑(y[true] - y[pred])**2`
+
+where,
+
+n is the number of samples, which is 4 (Alice, Bob, Charlie, Diana).
+y represents the variable being predicted, which is Gender.
+y[true] is the true value of the variable (the “correct answer”). For example, y[true] for Alice would be 1 (Female).
+y[pred] is the predicted value of the variable. It’s whatever our network outputs.
+
+
+(y[true] - y[pred])**2 is known as the squared error. Our loss function is simply taking the average over all squared errors (hence the name mean squared error). The better our predictions are, the lower our loss will be!
+
+Better predictions = Lower loss. Training a network = trying to minimize its loss.
