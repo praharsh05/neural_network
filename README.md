@@ -114,3 +114,6 @@ If we increase the number of epochs for the training the accuracy of the network
 
 `Emily: 0.990`
 `Frank: 0.016`
+
+
+This project was made possible because of Victor Zhou. Please check out his blog for more infomation: https://victorzhou.com/blog/intro-to-neural-networks/
